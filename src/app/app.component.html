@@ -1,0 +1,28 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" type="overlay">
+            <ion-header class="ion-no-border">
+                <ion-toolbar class="ion-text-center">
+                    <ion-title>
+                        <img src="/assets/dubistmirwichtig.png" alt="#DuBistMirWichtig" />
+                    </ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-list id="side-menu">
+                    <ion-item
+                        *ngFor="let p of appPages; let i = index"
+                        (click)="clickMenuItem()"
+                        routerDirection="root"
+                        [routerLink]="['/' + p.url]"
+                        detail="false"
+                        [class.selected]="selectedIndex == i"
+                    >
+                        <ion-label>{{ p.title }}</ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

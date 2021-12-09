@@ -1,0 +1,7 @@
+{
+  "name": "Tagebuch",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

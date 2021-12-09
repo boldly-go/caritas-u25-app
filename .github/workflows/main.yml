@@ -1,0 +1,36 @@
+name: CI
+
+# Controls when the action will run
+on: push
+
+jobs:
+  test-chrome:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: npm install angular CLI 
+        run: npm install @angular/cli@^10.2.1
+
+      - name: npm run lint, test and build
+        run: |
+          npm run lint
+          npm run test -- --configuration=ci --browsers=ChromeHeadless
+          npm run build

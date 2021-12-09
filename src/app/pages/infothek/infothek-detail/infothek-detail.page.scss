@@ -1,0 +1,38 @@
+.btns-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+ion-button {
+    width: 100%;
+    margin: 0 !important;
+    --background-activated: #ffffff;
+    --background: var(--ion-color-step-750);
+    color: #000000;
+    background-color: var(--ion-color-step-750);
+}
+
+.ion-activated {
+    --background: #ffffff !important;
+}
+
+.first,
+.last {
+    background-color: #000000;
+}
+
+.first {
+    --border-radius: 6px 0 0 6px;
+}
+
+.last {
+    --border-radius: 0 6px 6px 0;
+}
+.selected-btn {
+    --background: #ffffff;
+}
+
+.white-bg {
+    background: #ffffff;
+}

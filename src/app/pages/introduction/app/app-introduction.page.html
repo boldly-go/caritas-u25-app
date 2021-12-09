@@ -1,0 +1,13 @@
+<ion-content fullscreen class="ion-padding u25-safe-area-padding" scroll-y="false">
+    <ion-slides #slider [pager]="true" (ionSlideWillChange)="onSlideChanged()">
+        <ion-slide *ngFor="let slide of slidesContent">
+            <u25-info-slide [slide]="slide"></u25-info-slide>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar>
+        <ion-button size="large" expand="block" fill="outline" (click)="endSlider()">{{ btnText }}</ion-button>
+    </ion-toolbar>
+</ion-footer>

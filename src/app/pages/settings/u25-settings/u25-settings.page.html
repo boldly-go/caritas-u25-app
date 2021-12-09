@@ -1,0 +1,34 @@
+<ion-content>
+    <h3>Logindaten</h3>
+    <ion-list>
+        <ion-item>
+            <ion-label position="floating">Benutzername</ion-label>
+            <ion-input [readonly]="true" [value]="user.username"></ion-input>
+        </ion-item>
+        <ion-item button (click)="changePassword()" detail>
+            <ion-label> Passwort ändern </ion-label>
+        </ion-item>
+        <ion-item class="age-item">
+            <ion-label position="floating">Alter</ion-label>
+            <ion-input [readonly]="true" [value]="(user.age | age) + ' Jahre'"></ion-input>
+            <!--   <ion-select [(value)]="user.age">
+            <ion-select-option *ngFor="let age of ageOptions" [value]="age">{{age | age}} Jahre</ion-select-option>
+        </ion-select> -->
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Geschlecht</ion-label>
+            <!--      <ion-select [(value)]="user.gender">
+            <ion-select-option *ngFor="let gender of genderOptions" [value]="gender">{{gender | gender}}</ion-select-option>
+        </ion-select> -->
+            <ion-input [readonly]="true" [value]="user.gender|gender"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Bundesland</ion-label>
+            <ion-input [readonly]="true" [value]="user.state | state"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Beratungsstelle</ion-label>
+            <ion-input [readonly]="true" [value]="user.helpdesk"></ion-input>
+        </ion-item>
+    </ion-list>
+</ion-content>

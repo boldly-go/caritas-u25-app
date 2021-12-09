@@ -1,0 +1,33 @@
+<ion-content>
+    <div class="edit-pin-container container">
+        <h3>SicherheitsPIN</h3>
+        <ion-item button (click)="editPin()" detail>
+            <ion-label> PIN ändern </ion-label>
+        </ion-item>
+    </div>
+    <div class="edit-notifications-container container">
+        <h3>Benachrichtigungen</h3>
+
+        <ion-item class="push-notifications" detail="false">
+            <ion-toggle [checked]="pushService.isActive" (ionChange)="togglePushNotifications($event)"></ion-toggle>
+            <ion-label> Push Notifications </ion-label>
+        </ion-item>
+        <!--<ion-item detail="false">
+            <ion-label> Notification Typ </ion-label>
+            <ion-select placeholder="auswählen">
+                <ion-select-option value="1">Typ 1</ion-select-option>
+                <ion-select-option value="2">Typ 2</ion-select-option>
+                <ion-select-option value="3">Typ 3</ion-select-option>
+            </ion-select>
+        </ion-item>-->
+    </div>
+    <div class="legal-container container">
+        <h3>Rechtliches</h3>
+        <ion-item button (click)="openPage('https://www.u25-deutschland.de/impressum/')" detail>
+            <ion-label> Impressum </ion-label>
+        </ion-item>
+        <ion-item button (click)="openPage('https://www.u25-deutschland.de/datenschutzerklaerung/')" detail>
+            <ion-label> Datenschutz </ion-label>
+        </ion-item>
+    </div>
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-item class="ion-align-items-start" [routerLink]="route" detail="false">
+    <ion-label>
+        <h2 [ngClass]="{ unread: unread }">
+            {{ this.msgService.replaceUmlaute(message.text) }}
+        </h2>
+
+        <ion-text class="greyed-text">{{ this.msgService.replaceUmlaute(message.counsellor) }}</ion-text>
+    </ion-label>
+    <span *ngIf="unread" class="unread-circle"></span>
+    <ion-text slot="end" class="message-date greyed-text">{{ message.ts | date: 'dd MMM y' }}</ion-text>
+</ion-item>

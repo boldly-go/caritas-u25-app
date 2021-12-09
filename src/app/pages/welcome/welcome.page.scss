@@ -1,0 +1,30 @@
+ion-content,
+ion-footer {
+    --ion-color-primary: #fff;
+    --ion-background-color: #a41916;
+    --ion-item-background: var(--ion-background-color);
+    --ion-toolbar-background: var(--ion-background-color);
+}
+
+.btn-sign-in {
+    height: 45px;
+    font-size: 16px;
+}
+
+ion-item {
+    --border-color: rgba(255, 255, 255, 0.1);
+    --highlight-color-focused: var(--border-color);
+}
+ion-icon {
+    align-self: flex-end;
+}
+
+h1,
+a {
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+}
+
+a {
+    text-decoration: underline;
+}

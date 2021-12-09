@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Einstellungen</ion-title>
+    </ion-toolbar>
+
+    <ion-segment mode="md" (ionChange)="onFilterChanged($event)" [value]="filter">
+        <ion-segment-button value="app-settings">
+            <ion-label>App Einstellungen</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button *ngIf="this.authService.hasToken" value="u25-settings">
+            <ion-label>U25 Einstellungen</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content>
+    <u25-app-settings *ngIf="filter === 'app-settings'"></u25-app-settings>
+    <u25-u25-settings *ngIf="filter === 'u25-settings'"></u25-u25-settings>
+</ion-content>

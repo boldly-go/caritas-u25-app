@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Infothek</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ng-container *ngFor="let item of infothekItems, let i = index">
+            <ion-item [lines]="lineString(item.showDetail)">
+                <ion-label (click)="navigateTo(i)">{{item.title}} </ion-label>
+                <ion-icon
+                    (click)="item.showDetail = toggleShowDetail(item.showDetail)"
+                    name="chevron-down-outline"
+                ></ion-icon>
+            </ion-item>
+            <ion-item lines="none" class="hide" [ngClass]="{'show': item.showDetail}"
+                ><p [innerHTML]="item.shortText"></p>
+            </ion-item>
+            <ion-item class="hide" [ngClass]="{'show': item.showDetail}">
+                <ion-button (click)="navigateTo(i)" expand="block">Weitere Infos</ion-button>
+            </ion-item>
+        </ng-container>
+    </ion-list>
+</ion-content>

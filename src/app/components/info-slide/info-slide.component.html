@@ -1,0 +1,9 @@
+<div class="slide">
+    <img [src]="slide.imgSrc" alt="Sliderlogo"/>
+    <h1>{{ slide.title }}</h1>
+    <h2>
+        <ion-icon [name]="slide.icon" slot="start"></ion-icon>
+        {{ slide.subtitle }}
+    </h2>
+    <p>{{ slide.description }}</p>
+</div>

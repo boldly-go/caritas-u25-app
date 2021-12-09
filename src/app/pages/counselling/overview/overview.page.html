@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Meine Beratung</ion-title>
+        <ion-buttons *ngIf="isIOS" slot="end">
+            <ion-button (click)="onNewMessage()"><ion-icon name="add" slot="icon-only"></ion-icon></ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <ion-segment mode="md" (ionChange)="onFilterChanged($event)" [value]="filter">
+        <ion-segment-button value="received">
+            <ion-label>Empfangen</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button value="sent">
+            <ion-label>Gesendet</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button value="draft">
+            <ion-label>Entwürfe</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngIf="filter === 'received'">
+        <u25-message-item
+            *ngFor="let message of receivedMessages"
+            [message]="message"
+            (click)="messageRead(message.groupId)"
+            [canEdit]="false"
+        ></u25-message-item>
+    </ion-list>
+    <ion-list *ngIf="filter === 'sent'">
+        <u25-message-item *ngFor="let message of sentMessages" [message]="message" [canEdit]="false"></u25-message-item>
+    </ion-list>
+    <ion-list *ngIf="filter === 'draft'">
+        <u25-message-item *ngFor="let message of draftMessages" [message]="message" [canEdit]="true"></u25-message-item>
+    </ion-list>
+
+    <ion-fab *ngIf="!isIOS" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="onNewMessage()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

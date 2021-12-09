@@ -1,0 +1,9 @@
+ion-item {
+  --border-color: rgba(255, 255, 255, 0.1);
+  --highlight-color-focused: var(--border-color);
+}
+
+h1, p {
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+}

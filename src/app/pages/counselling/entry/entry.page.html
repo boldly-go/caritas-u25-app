@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Meine Beratung</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ng-container *ngIf="isCounselorAvailable">
+        <p class="registration-open">Anmeldung geöffnet</p>
+        <p>
+            Hallo Du! <br />
+            Wir haben freie Berater*Innen.
+        </p>
+
+        <ion-button expand="block" fill="solid" routerLink="../register" routerDirection="forward">Registrieren</ion-button>
+        <p class="ion-text-center">oder</p>
+        <ion-button expand="block" fill="outline" routerLink="../login" routerDirection="forward">Einloggen</ion-button>
+    </ng-container>
+
+    <ng-container *ngIf="!isCounselorAvailable">
+        <p class="registration-closed">Anmeldung temporär geschlossen.</p>
+        <p>
+            Hallo Du! <br />
+            Leider können wir dir heute aus Kapazitätsgründen keine Beratung anbieten.<br />
+            <a href="https://www.u25-deutschland.de/nicht-verfuegbar/">Erfahre hier, warum das so ist.</a>
+        </p>
+        <p>
+            Schaue morgen noch einmal rein. <br />
+            In der Regel werden freie Beratungsplätze zwischen einem und drei Tagen frei.
+        </p>
+        <p>
+            Nutze in der Zwischenzeit das Tagebuch, um deine Gedanken niederzuschreiben oder nutze unsere
+            <a href="https://www.u25-deutschland.de/weitere-hilfsangebote/">alternativen Hilfsangebote</a>.
+        </p>
+
+        <p class="greyed-text ion-text-center">Du hast schon einen Account bei U25?</p>
+        <ion-button expand="block" fill="solid" routerLink="../login" routerDirection="forward">Einloggen</ion-button>
+    </ng-container>
+</ion-content>

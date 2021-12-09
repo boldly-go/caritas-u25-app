@@ -1,0 +1,19 @@
+ion-content {
+  --ion-background-color: #F2F2F2;
+  --ion-text-color: #92949C;
+  --u25-header-color: #333333;
+}
+
+ion-toolbar {
+  --ion-toolbar-background: #F2F2F2;
+  --ion-toolbar-color: var(--ion-color-primary);
+}
+
+ion-slides {
+  --bullet-background-active: #333333;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: block;
+}

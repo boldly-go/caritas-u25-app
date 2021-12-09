@@ -1,0 +1,19 @@
+p {
+  line-height: 1.5rem;
+}
+
+.registration-open {
+  font-weight: bold;
+  color: var(--ion-color-success);
+}
+
+.registration-closed {
+  font-weight: bold;
+  color: var(--ion-color-danger);
+}
+
+.greyed-text {
+  margin-top: 50px;
+  margin-bottom: 0;
+  line-height: 1rem;
+}

@@ -1,0 +1,73 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import '~@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+@font-face {
+    font-family: 'Festivo LC';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./assets/fonts/FestivoLC-Basic.otf');
+}
+
+h1 {
+    font-family: var(--u25-font-secondary, --ion-font-family);
+    font-size: 60px;
+    line-height: 110%;
+    font-style: normal;
+    font-weight: normal;
+    padding-right: 16px;
+}
+
+.sc-ion-alert-ios-h, .sc-ion-alert-md-h {
+    --ion-text-color: #000000;
+    --ion-text-color-rgb: 0, 0, 0;
+
+    .alert-radio-button, .alert-radio-button[aria-checked="true"] {
+        .alert-radio-label {
+            color: #000000;
+        }
+    }
+}
+
+ion-label.required-field::after {
+    content: '*';
+}
+
+.greyed-text, .greyed-text a {
+    color: var(--ion-color-step-300);
+}
+
+.edit {
+    --ion-background-color: var(--ion-color-step-100);
+}
+
+.native-textarea[disabled].sc-ion-textarea-md, .native-textarea[disabled].sc-ion-textarea-ios {
+    opacity: 1;
+}
+
+.u25-safe-area-padding {
+    padding-top: var(--ion-safe-area-top, 0);
+}

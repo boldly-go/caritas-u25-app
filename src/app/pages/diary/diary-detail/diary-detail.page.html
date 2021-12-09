@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="arrow-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Mein Tagebuch</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="date" lines="none"> {{diaryEntry.date | date: 'EEEE, d MMMM y':'+0200':'de' }} </ion-item>
+    <ion-item lines="none">
+        <h2 class="title">{{diaryEntry.title}}</h2>
+        <span class="emoji">{{diaryEntry.emoji}}</span></ion-item
+    >
+    <ion-item lines="none"> {{diaryEntry.content}} </ion-item>
+</ion-content>

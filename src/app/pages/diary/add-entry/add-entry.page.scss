@@ -1,0 +1,31 @@
+h2 {
+    color: #ffffff;
+}
+
+.date {
+    color: var(--ion-color-step-750);
+    size: 12px;
+}
+
+ion-segment {
+    --background: inherit;
+}
+
+.emoji-btn {
+    width: 45px;
+    height: 34px;
+    margin-right: 5px;
+    --ion-color-base: #efefef33 !important;
+}
+
+.selected-emoji {
+    --ion-color-base: #ffffff !important;
+}
+
+.input-area {
+    margin-top: 50px;
+}
+
+.selected-emoji div {
+    color: var(--ion-color-step-100);
+}

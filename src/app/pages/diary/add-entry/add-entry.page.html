@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="arrow-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Mein Tagebuch</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="saveEntry()">
+                <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="edit">
+    <form #addDiaryEntryForm="ngForm">
+        <ion-list>
+            <ion-item lines="none">
+                <h2>Wie geht es dir heute?</h2>
+            </ion-item>
+            <ion-item class="date" lines="none">{{entry.date | date: 'EEEE, d MMMM y':'':'de' }} </ion-item>
+        </ion-list>
+        <ion-item lines="none">
+            <ion-segment scrollable>
+                <ng-container *ngFor="let emoji of emojis">
+                    <ion-button
+                        (click)="selectEmoji(emoji)"
+                        class="emoji-btn"
+                        [ngClass]="{'selected-emoji':emoji === entry.emoji}"
+                        size="large"
+                        color="light"
+                    >
+                        <div>{{emoji}}</div>
+                    </ion-button></ng-container
+                >
+            </ion-segment>
+        </ion-item>
+        <div class="input-area">
+            <ion-item lines="none">
+                <h2>Schreib auf, was dich bewegt!</h2>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Titel</ion-label>
+                <ion-input [(ngModel)]="entry.title" name="title"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-label position="floating">Tagebuch Eintrag schreiben...</ion-label>
+                <ion-textarea [(ngModel)]="entry.content" name="content" rows="15"></ion-textarea>
+            </ion-item>
+        </div>
+    </form>
+</ion-content>

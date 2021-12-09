@@ -1,0 +1,21 @@
+{
+    "appId": "de.caritas.u25",
+    "appName": "Tagebuch",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "www",
+    "plugins": {
+        "SplashScreen": {
+            "launchAutoHide": false,
+            "androidSplashResourceName": "screen"
+        },
+        "LocalNotifications": {
+            "smallIcon": "ic_notification",
+            "iconColor": "#CB1F1E"
+        }
+    },
+    "cordova": {},
+    "server": {
+        "hostname": "u25-app.caritas.de"
+    }
+}

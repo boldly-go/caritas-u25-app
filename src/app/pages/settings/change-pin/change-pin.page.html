@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="arrow-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title>PIN ändern</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="edit">
+    <form #changePinForm="ngForm" (ngSubmit)="submitForm()" (keyup.enter)="submitForm()">
+        <ion-list>
+            <ion-item *ngIf="!forgotPin">
+                <ion-label position="floating">Aktuellen PIN eingeben</ion-label>
+                <ion-input
+                    type="password"
+                    [(ngModel)]="changePinData.oldPin"
+                    name="oldPin"
+                    [attr.required]="!forgotPin"
+                ></ion-input>
+            </ion-item>
+            <ng-container *ngIf="forgotPin" class="safety-question">
+                <ion-item lines="none">
+                    <p>Beantworte die Sicherheitsfrage, um deine PIN zurückzusetzen</p>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Sicherheitsfrage</ion-label>
+                    <ion-select [value]="secQuestion" disabled="true">
+                        <ion-select-option [value]="secQuestion">{{secQuestion}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Antwort wählen</ion-label>
+                    <ion-input [(ngModel)]="changePinData.securityResponse" name="securityResponse"></ion-input>
+                </ion-item>
+            </ng-container>
+            <ion-item>
+                <ion-label position="floating">Neuen PIN eingeben</ion-label>
+
+                <ion-input
+                    type="password"
+                    [(ngModel)]="changePinData.newPin"
+                    name="newPin"
+                    #newPin="ngModel"
+                ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Neuen PIN wiederholen</ion-label>
+
+                <ion-input
+                    type="password"
+                    [u25EqualValue]="newPin.value"
+                    [(ngModel)]="changePinData.newPinCheck"
+                    name="newPinCheck"
+                ></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+                <a (click)="clickedForgotPin()">PIN <span *ngIf="forgotPin">doch nicht</span> vergessen?</a>
+            </ion-item>
+
+            <ion-button expand="block" class="ion-padding-horizontal" (click)="submitForm()">
+                Bestätigen
+            </ion-button>
+        </ion-list>
+    </form>
+</ion-content>

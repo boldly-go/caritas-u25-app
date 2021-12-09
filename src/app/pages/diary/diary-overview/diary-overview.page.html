@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Mein Tagebuch</ion-title>
+        <ion-buttons *ngIf="isIOS" slot="end">
+            <ion-button routerLink="/diary/add-entry"><ion-icon name="add" slot="icon-only"></ion-icon></ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-label> <h2>Alle Einträge</h2> </ion-label>
+        </ion-list-header>
+        <ng-container *ngIf="this.diaryEntries.length === 0">
+            <ion-item lines="none" style="margin: 85px 0 0">
+                <img
+                    style="margin: auto"
+                    src="/assets/tagebuch_clean.svg"
+                    alt="Tagebuch neu"
+                    width="120"
+                    height="120"
+                />
+            </ion-item>
+            <ion-item lines="none">
+                <ion-text>
+                    Nutze das Tagebuch, um deine Gedanken niederzuschreiben. Was treibt dich um? Was bereitet dir
+                    schlaflose Nächte? Was möchtest du loswerden? Schreiben hilft dir, zu verarbeiten. Probier es mal
+                    aus.
+                </ion-text>
+            </ion-item>
+            <ion-button
+                expand="block"
+                routerLink="/diary/add-entry"
+                fill="outline"
+                class="ion-padding-horizontal add-diary"
+            >
+                Tagebucheintrag verfassen
+            </ion-button>
+        </ng-container>
+        <ng-container *ngIf="this.diaryEntries !== []">
+            <ion-item lines="none">
+                <ion-segment scrollable>
+                    <ng-container *ngFor="let entry of diaryEntries">
+                        <div class="emoji-item">
+                            <span>{{entry.date | date: 'd MMM':'+0200':'de'}}</span>
+                            <ion-card class="emoji-card"
+                                ><div
+                                    [routerLink]="['/diary/detail',entry.id]"
+                                    [queryParams]="entry"
+                                    [ngClass]="{'no-emoji': entry.emoji === '∅'}"
+                                >
+                                    {{entry.emoji }}
+                                </div></ion-card
+                            >
+                        </div>
+                    </ng-container>
+                </ion-segment>
+            </ion-item>
+            <ion-card
+                class="item-card"
+                *ngFor="let entry of diaryEntries"
+                [routerLink]="['/diary/detail',entry.id]"
+                [queryParams]="entry"
+            >
+                <ion-card-header>
+                    <span>{{entry.date | date: 'EEEE, d MMMM y':'+0200':'de'}}</span>
+                    <ion-card-title>{{entry.title}}</ion-card-title>
+                </ion-card-header>
+            </ion-card>
+        </ng-container>
+    </ion-list>
+    <ion-fab *ngIf="!isIOS" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button routerLink="/diary/add-entry">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

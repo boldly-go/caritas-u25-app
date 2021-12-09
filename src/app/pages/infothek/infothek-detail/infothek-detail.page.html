@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="arrow-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Infothek</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item lines="none"> <h2>{{infothekItem.title}}</h2> </ion-item>
+    <ion-item lines="none">
+        <ion-segment scrollable>
+            <div class="btns-container">
+                <ng-container *ngFor="let segment of infothekItem.segments, first as first, last as last ">
+                    <ion-button
+                        [ngClass]="{'selected-btn':segment === selectedSegment,'first': first, 'last': last}"
+                        (click)="selectSegment(segment)"
+                        >{{infothekItem.content[segment].title}}</ion-button
+                    >
+                </ng-container>
+            </div>
+        </ion-segment>
+    </ion-item>
+    <ion-item lines="none"> <p [innerHTML]="infothekItem.content[selectedSegment].text"></p> </ion-item>
+</ion-content>
