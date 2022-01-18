@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { OverviewPage } from './overview.page';
@@ -44,7 +44,7 @@ describe('MessageOverviewPage', () => {
         cleaned: true
     };
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [OverviewPage, MessageItemComponent],
             imports: [IonicModule, RouterTestingModule.withRoutes([]), HttpClientTestingModule],

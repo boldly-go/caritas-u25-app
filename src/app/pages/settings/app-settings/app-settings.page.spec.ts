@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -10,7 +10,7 @@ describe('AppSettingsPage', () => {
     let component: AppSettingsPage;
     let fixture: ComponentFixture<AppSettingsPage>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [AppSettingsPage],
             providers: [{ provide: PushService, useClass: PushServiceMock }],

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { PinCreateFormComponent } from './pin-create-form.component';
@@ -9,7 +9,7 @@ describe('CreateFormComponent', () => {
     let component: PinCreateFormComponent;
     let fixture: ComponentFixture<PinCreateFormComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [PinCreateFormComponent],
             imports: [IonicModule, FormsModule, U25DirectivesModule]
