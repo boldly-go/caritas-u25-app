@@ -8,7 +8,7 @@ import { MenuController } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-root',
+    selector: 'u25-app-root',
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.scss']
 })
@@ -53,10 +53,6 @@ export class AppComponent {
 
     initializeApp() {
         SplashScreen.hide();
-
-        if (this.platform.is('ios')) {
-            this.config.set('backButtonText', 'Zurück');
-        }
 
         this.lockService.activatePinSecurity();
     }

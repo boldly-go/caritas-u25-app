@@ -18,7 +18,13 @@ registerLocaleData(localDE);
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, OAuthModule.forRoot()],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot({ backButtonText: 'Zurück' }),
+        AppRoutingModule,
+        HttpClientModule,
+        OAuthModule.forRoot()
+    ],
     providers: [
         { provide: LOCALE_ID, useValue: 'de-DE' },
         StatusBar,

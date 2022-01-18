@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { InfothekService } from 'src/app/services/infothek.service';
 import { ActivatedRoute } from '@angular/router';
 import { InfothekItem } from 'src/app/models/infothek-item';
@@ -9,7 +9,7 @@ import { InfothekItem } from 'src/app/models/infothek-item';
     styleUrls: ['./infothek-detail.page.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class InfothekDetailPage implements OnInit {
+export class InfothekDetailPage {
     infothekItem: InfothekItem;
     itemIndex = undefined;
     selectedSegment: string;
@@ -26,5 +26,4 @@ export class InfothekDetailPage implements OnInit {
     selectSegment(segment: string) {
         this.selectedSegment = segment;
     }
-    ngOnInit() {}
 }

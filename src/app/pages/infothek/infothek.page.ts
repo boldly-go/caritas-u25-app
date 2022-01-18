@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { InfothekService } from 'src/app/services/infothek.service';
 import { Router } from '@angular/router';
 import { InfothekItem } from 'src/app/models/infothek-item';
@@ -7,7 +7,7 @@ import { InfothekItem } from 'src/app/models/infothek-item';
     templateUrl: './infothek.page.html',
     styleUrls: ['./infothek.page.scss']
 })
-export class InfothekPage implements OnInit {
+export class InfothekPage {
     infothekItems: InfothekItem[];
     constructor(private infothekService: InfothekService, private router: Router) {
         this.infothekItems = this.infothekService.getAllInfothekItems();
@@ -27,5 +27,4 @@ export class InfothekPage implements OnInit {
             return 'full';
         }
     }
-    ngOnInit() {}
 }

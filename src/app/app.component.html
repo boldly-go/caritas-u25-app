@@ -16,7 +16,7 @@
                         routerDirection="root"
                         [routerLink]="['/' + p.url]"
                         detail="false"
-                        [class.selected]="selectedIndex == i"
+                        [class.selected]="selectedIndex === i"
                     >
                         <ion-label>{{ p.title }}</ion-label>
                     </ion-item>
