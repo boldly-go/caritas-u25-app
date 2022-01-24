@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ISlideContent } from '../../models/slider-content';
 
 @Component({
@@ -6,10 +6,8 @@ import { ISlideContent } from '../../models/slider-content';
     templateUrl: './info-slide.component.html',
     styleUrls: ['./info-slide.component.scss']
 })
-export class InfoSlideComponent implements OnInit {
+export class InfoSlideComponent {
     @Input() public slide: ISlideContent;
 
     constructor() {}
-
-    ngOnInit() {}
 }

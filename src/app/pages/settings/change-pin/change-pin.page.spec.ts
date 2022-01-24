@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ describe('ChangePinPage', () => {
     let component: ChangePinPage;
     let fixture: ComponentFixture<ChangePinPage>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [ChangePinPage],
             imports: [IonicModule, RouterTestingModule, FormsModule, U25DirectivesModule]

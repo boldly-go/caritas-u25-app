@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { InfothekService } from 'src/app/services/infothek.service';
 import { ActivatedRoute } from '@angular/router';
 import { InfothekItem } from 'src/app/models/infothek-item';
@@ -13,7 +13,9 @@ export class InfothekDetailPage implements OnInit {
     infothekItem: InfothekItem;
     itemIndex = undefined;
     selectedSegment: string;
-    constructor(private infothekService: InfothekService, private route: ActivatedRoute) {
+    constructor(private infothekService: InfothekService, private route: ActivatedRoute) {}
+
+    ngOnInit() {
         this.route.params.subscribe((params) => {
             this.itemIndex = params.index;
             if (this.itemIndex) {
@@ -26,5 +28,4 @@ export class InfothekDetailPage implements OnInit {
     selectSegment(segment: string) {
         this.selectedSegment = segment;
     }
-    ngOnInit() {}
 }

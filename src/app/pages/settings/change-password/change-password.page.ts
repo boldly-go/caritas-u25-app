@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UtilityService } from '../../../services/utility.service';
 import { StorageService } from '../../../services/storage.service';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
     templateUrl: './change-password.page.html',
     styleUrls: ['./change-password.page.scss']
 })
-export class ChangePasswordPage implements OnInit {
+export class ChangePasswordPage {
     @ViewChild('changePasswordForm') changePasswordForm: NgForm;
 
     changePasswordData: { oldPassword: string; newPassword: string; newPasswordCheck: string } = {
@@ -26,8 +26,6 @@ export class ChangePasswordPage implements OnInit {
         private userService: UserService,
         private router: Router
     ) {}
-
-    ngOnInit() {}
 
     submitForm() {
         if (

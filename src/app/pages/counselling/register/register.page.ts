@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UtilityService } from '../../../services/utility.service';
 import { NgForm } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register.service';
@@ -15,7 +15,7 @@ import { PushService } from '../../../services/push.service';
     templateUrl: './register.page.html',
     styleUrls: ['./register.page.scss']
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage {
     @ViewChild('registrationForm') registrationForm: NgForm;
     public btnText: 'Lädt...' | 'Registrieren' = 'Registrieren';
     public clickedSubmit = false;
@@ -41,8 +41,6 @@ export class RegisterPage implements OnInit {
         private storage: StorageService,
         private pushService: PushService
     ) {}
-
-    ngOnInit() {}
 
     public showInformation(type: 'username' | 'password') {
         switch (type) {

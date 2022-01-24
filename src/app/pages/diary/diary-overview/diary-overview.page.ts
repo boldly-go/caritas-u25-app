@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DiaryService } from 'src/app/services/diary.service';
 import { DiaryEntry } from 'src/app/models/diary-entry';
 import { Platform } from '@ionic/angular';
@@ -8,15 +8,13 @@ import { Platform } from '@ionic/angular';
     templateUrl: './diary-overview.page.html',
     styleUrls: ['./diary-overview.page.scss']
 })
-export class DiaryOverviewPage implements OnInit {
+export class DiaryOverviewPage {
     diaryEntries: DiaryEntry[] = [];
     public isIOS: boolean;
 
     constructor(private diaryService: DiaryService, private platform: Platform) {
         this.isIOS = this.platform.is('ios');
     }
-
-    ngOnInit() {}
 
     ionViewWillEnter() {
         this.diaryService.getDiaryEntries().then((entries: DiaryEntry[]) => {

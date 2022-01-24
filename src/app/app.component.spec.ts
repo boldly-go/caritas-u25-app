@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { LockServiceMock } from './mocks/LockServiceMock';
 describe('AppComponent', () => {
     let splashScreenSpy;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
 
         TestBed.configureTestingModule({

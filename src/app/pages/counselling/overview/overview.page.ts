@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MessageService } from '../../../services/message.service';
 import { Subscription } from 'rxjs';
 import { Message } from '../../../models/message';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
     templateUrl: './overview.page.html',
     styleUrls: ['./overview.page.scss']
 })
-export class OverviewPage implements OnInit, OnDestroy {
+export class OverviewPage implements OnDestroy {
     public filter: 'sent' | 'received' | 'draft' = 'received';
     public isIOS: boolean;
     public receivedMessages: Message[];
@@ -21,8 +21,6 @@ export class OverviewPage implements OnInit, OnDestroy {
     constructor(private router: Router, private msgService: MessageService, private platform: Platform) {
         this.isIOS = this.platform.is('ios');
     }
-
-    ngOnInit() {}
 
     ionViewWillEnter() {
         this.messagesSub = this.msgService.getMessages().subscribe((messages) => {
