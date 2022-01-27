@@ -1,0 +1,3 @@
+[submodule "catapush-notifications-plugin"]
+	path = catapush-notifications-plugin
+	url = https://github.com/hansbrian/catapush-notifications-plugin
