@@ -1,7 +1,8 @@
 {
   "name": "Tagebuch",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
