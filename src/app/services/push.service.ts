@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { UserService } from './user.service';
 
+import { Plugins } from '@capacitor/core';
+const { CatapushNotificationsPlugin } = Plugins;
+
 @Injectable({
     providedIn: 'root'
 })
@@ -23,7 +26,9 @@ export class PushService {
         private userService: UserService
     ) {}
 
-    initialize() {
+    async initialize() {
+        const token = await CatapushNotificationsPlugin.register();
+        console.log(token);
         // Request permission to use push notifications
         // iOS will prompt user and return if they granted permission or not
         // Android will just grant without prompting
