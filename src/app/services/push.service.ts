@@ -8,7 +8,7 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { UserService } from './user.service';
-
+import 'catapush-notifications-plugin';
 import { Plugins } from '@capacitor/core';
 const { CatapushNotificationsPlugin } = Plugins;
 
@@ -26,9 +26,12 @@ export class PushService {
         private userService: UserService
     ) {}
 
-    async initialize() {
+    async catapushTest() {
         const token = await CatapushNotificationsPlugin.register();
         console.log(token);
+    }
+
+    initialize() {
         // Request permission to use push notifications
         // iOS will prompt user and return if they granted permission or not
         // Android will just grant without prompting

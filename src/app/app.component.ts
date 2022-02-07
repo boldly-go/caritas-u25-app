@@ -6,6 +6,7 @@ import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { LockService } from './services/lock.service';
 import { MenuController } from '@ionic/angular';
 import { filter } from 'rxjs/operators';
+import { PushService } from './services/push.service';
 
 @Component({
     selector: 'u25-app-root',
@@ -38,13 +39,15 @@ export class AppComponent {
         private platform: Platform,
         private router: Router,
         private lockService: LockService,
-        private menu: MenuController
+        private menu: MenuController,
+        private pushService: PushService
     ) {
         this.router.events.pipe(filter((value: RouterEvent) => value instanceof NavigationEnd)).subscribe((value) => {
             const selected = value.url.split('/')[1].toLowerCase();
             this.selectedIndex = this.appPages.findIndex((page) => page.url === selected);
         });
         this.initializeApp();
+        this.pushService.catapushTest();
     }
 
     clickMenuItem() {
