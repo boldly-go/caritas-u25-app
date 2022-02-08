@@ -7,23 +7,28 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { IonicModule } from '@ionic/angular';
 import { LockService } from './services/lock.service';
 import { LockServiceMock } from './mocks/LockServiceMock';
+import { PushService } from './services/push.service';
+import { PushServiceMock } from './mocks/PushServiceMock';
 
 describe('AppComponent', () => {
     let splashScreenSpy;
 
-    beforeEach(waitForAsync(() => {
-        splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
+    beforeEach(
+        waitForAsync(() => {
+            splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
 
-        TestBed.configureTestingModule({
-            declarations: [AppComponent],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
-            imports: [IonicModule, RouterTestingModule.withRoutes([])],
-            providers: [
-                { provide: SplashScreen, useValue: splashScreenSpy },
-                { provide: LockService, useClass: LockServiceMock }
-            ]
-        }).compileComponents();
-    }));
+            TestBed.configureTestingModule({
+                declarations: [AppComponent],
+                schemas: [CUSTOM_ELEMENTS_SCHEMA],
+                imports: [IonicModule, RouterTestingModule.withRoutes([])],
+                providers: [
+                    { provide: SplashScreen, useValue: splashScreenSpy },
+                    { provide: LockService, useClass: LockServiceMock },
+                    { provide: PushService, useClass: PushServiceMock }
+                ]
+            }).compileComponents();
+        })
+    );
 
     it('should create the app', async () => {
         const fixture = TestBed.createComponent(AppComponent);

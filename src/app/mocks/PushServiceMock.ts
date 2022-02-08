@@ -3,4 +3,5 @@ export class PushServiceMock {
     activate() {}
     dedeactivate() {}
     initialize() {}
+    async catapushTest() {}
 }
